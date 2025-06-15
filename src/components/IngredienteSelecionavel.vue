@@ -10,14 +10,23 @@
             return {
                 selecionado: false
             }
-        }
+        },
+        methods: {
+            aoClicar() {
+                this.selecionado = !this.selecionado
+
+                const evento = this.selecionado ? 'adicionarIngrediente' : 'removerIngrediente'
+                this.$emit(evento, this.ingrediente)
+            }
+        },
+        emits: ['adicionarIngrediente', 'removerIngrediente']
     }
 </script>
 
 <template>
     <button
         class="ingrediente"
-        @click="selecionado = !selecionado"
+        @click="aoClicar"
         :aria-pressed="selecionado"
     >
         <Tag :texto="ingrediente" :ativa="selecionado" />

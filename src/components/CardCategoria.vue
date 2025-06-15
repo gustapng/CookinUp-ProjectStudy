@@ -7,7 +7,8 @@
         props: {
             categoria: {type: Object as PropType<iCategoria>, required: true}
         },
-        components: { IngredienteSelecionavel }
+        components: { IngredienteSelecionavel },
+        emits: ['adicionarIngrediente', 'removerIngrediente']
     }
 </script>
 
@@ -19,7 +20,11 @@
         </header>
         <ul class="categoria__ingredientes">
             <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
-                <IngredienteSelecionavel :ingrediente="ingrediente" />
+                <IngredienteSelecionavel 
+                    :ingrediente="ingrediente" 
+                    @adicionar-ingrediente="$emit('adicionarIngrediente', $event)"
+                    @remover-ingrediente="$emit('removerIngrediente', $event)"
+                />
             </li>
         </ul>
     </article>
