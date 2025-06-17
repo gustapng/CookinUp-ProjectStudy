@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { obterCategorias } from '@/http';
+    import { obterCategorias } from '@/http/categoria';
     import type iCategoria from '@/interfaces/iCategoria';
     import CardCategoria from './CardCategoria.vue';
     import BotaoPrincipal from './BotaoPrincipal.vue';

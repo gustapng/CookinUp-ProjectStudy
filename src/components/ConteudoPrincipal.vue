@@ -39,7 +39,7 @@
             @remover-ingrediente="removerIngrediente"
             @buscar-receitas="navegar('MostrarReceitas')"
         />
-        <MostrarReceitas v-else-if="conteudo === 'MostrarReceitas'" />
+        <MostrarReceitas v-else-if="conteudo === 'MostrarReceitas'" @selecionar-ingredientes="navegar('SelecionarIngredientes')" />
     </main>
     <Rodape />
 </template>
